@@ -8,7 +8,7 @@ class TestTask(unittest.TestCase):
     def setUp(self):
         self.task1 = Task("Washing Dishes", 15)
         self.task2 = Task("Cooking Dinner", 60)
-        self.task3 = Task("Clean Windows", 60)
+        self.task3 = Task("Cleaning Windows", 60)
 
 
     def test_task_has_description(self):
@@ -17,7 +17,14 @@ class TestTask(unittest.TestCase):
     def test_task_has_duration(self):
         self.assertEqual(15, self.task1.duration)
 
-    def test_task_decider_cooking_over_washing(self):
+    def test_task_decider_washing_over_cooking(self):
         result = get_preffered_option(self.task1, self.task2)
         self.assertEqual("Washing Dishes", result)
+    
+    def test_task_decider_cooking_cleaning(self):
+        result = get_preffered_option(self.task2, self.task3)
+        self.assertEqual("Cooking Dinner", result)
+    
+    
+
     
