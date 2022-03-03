@@ -48,6 +48,10 @@ class TestTask(unittest.TestCase):
         result = get_longest_task(self.task1, self.task2)
         self.assertEqual("Cooking Dinner", result)
 
+    def test_durations_are_the_same(self):
+        result = get_longest_task(self.task1, self.task1)
+        self.assertEqual("Tasks take the same amount of time.", result)
+
         
     
 
