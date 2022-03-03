@@ -9,6 +9,8 @@ class TestTask(unittest.TestCase):
         self.task1 = Task("Washing Dishes", 15)
         self.task2 = Task("Cooking Dinner", 60)
         self.task3 = Task("Cleaning Windows", 60)
+        self.task4 = Task(None, 60)
+
 
 
     def test_task_has_description(self):
@@ -33,6 +35,9 @@ class TestTask(unittest.TestCase):
         result = does_task_exist(self.task1)
         self.assertEqual(True, result)
     
+    def test_does_task_exist_fail(self):
+        result = does_task_exist(self.task4)
+        self.assertEqual(False, result)
     
 
     
