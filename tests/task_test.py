@@ -25,6 +25,10 @@ class TestTask(unittest.TestCase):
         result = get_preffered_option(self.task2, self.task3)
         self.assertEqual("Cooking Dinner", result)
     
+    def test_task_cleaning_over_washing(self):
+        result = get_preffered_option(self.task1, self.task3)
+        self.assertEqual("Cleaning Windows", result)
+    
     
 
     
