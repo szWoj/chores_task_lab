@@ -28,6 +28,10 @@ class TestTask(unittest.TestCase):
     def test_task_cleaning_over_washing(self):
         result = get_preffered_option(self.task1, self.task3)
         self.assertEqual("Cleaning Windows", result)
+
+    def test_does_task_exist(self):
+        result = does_task_exist(self.task1)
+        self.assertEqual(True, result)
     
     
 
