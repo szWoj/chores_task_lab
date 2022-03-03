@@ -1,14 +1,23 @@
 import unittest
 
 from src.task import Task
+from task_decider import *
 
 class TestTask(unittest.TestCase):
 
     def setUp(self):
-        self.task = Task("Washing Dishes", 15)
+        self.task1 = Task("Washing Dishes", 15)
+        self.task2 = Task("Cooking Dinner", 60)
+        self.task3 = Task("Clean Windows", 60)
+
 
     def test_task_has_description(self):
-        self.assertEqual("Washing Dishes", self.task.description)
+        self.assertEqual("Washing Dishes", self.task1.description)
 
     def test_task_has_duration(self):
-        self.assertEqual(15, self.task.duration)
+        self.assertEqual(15, self.task1.duration)
+
+    def test_task_decider_cooking_over_washing(self):
+        result = get_preffered_option(self.task1, self.task2)
+        self.assertEqual("Washing Dishes", result)
+    
