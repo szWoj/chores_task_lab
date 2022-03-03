@@ -9,7 +9,8 @@ class TestTask(unittest.TestCase):
         self.task1 = Task("Washing Dishes", 15)
         self.task2 = Task("Cooking Dinner", 60)
         self.task3 = Task("Cleaning Windows", 60)
-        self.task4 = Task(None, 60)
+        self.task4 = Task("Do dishes", 60)
+        self.task5 = Task(None, 0)
 
 
 
@@ -36,8 +37,13 @@ class TestTask(unittest.TestCase):
         self.assertEqual(True, result)
     
     def test_does_task_exist_fail(self):
-        result = does_task_exist(self.task4)
+        result = does_task_exist(self.task5)
         self.assertEqual(False, result)
+
+    def test_one_task_description_unmatched(self):
+        result = get_preffered_option(self.task1, self.task4)
+        self.assertEqual("This task does not exist", result)
+        
     
 
     
