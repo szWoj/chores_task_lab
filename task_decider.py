@@ -13,3 +13,18 @@ def does_task_exist(task):
         return True
     return False
 
+
+def get_longest_task(task1, task2):
+    if task1.duration == task2.duration:
+        return "Tasks take the same amount of time."
+    elif task1.duration > task2.duration:
+        return task1.description
+    return task2.description 
+    
+
+
+
+
+
+
+
